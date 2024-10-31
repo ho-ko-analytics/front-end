@@ -2,8 +2,10 @@
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyc
 
 # Ignorar configurações de ambiente virtual
+.env
 env/
 venv/
 ENV/

@@ -25,9 +25,8 @@ def line_chart_Reach(dates, timezone='America/Sao_Paulo'):
                   title="Alcance")
 
     # Configurar o layout para ser mais legível
-    fig.update_layout(hovermode='x unified') 
+    fig.update_layout(hovermode='x unified')
     st.plotly_chart(fig, use_container_width=True)
-
 
 def line_chart_Impressions(dates, timezone='America/Sao_Paulo'):
     # Definir o fuso horário
@@ -52,5 +51,29 @@ def line_chart_Impressions(dates, timezone='America/Sao_Paulo'):
                   title="Impressões")
 
     # Configurar o layout para ser mais legível
-    fig.update_layout(hovermode='x unified') 
+    fig.update_layout(hovermode='x unified')
+    st.plotly_chart(fig, use_container_width=True)
+
+def line_chart_WebsiteTraffic(dates, timezone='America/Sao_Paulo'):
+    # Definir o fuso horário
+    tz = pytz.timezone(timezone)
+    dates = dates.tz_localize('UTC').tz_convert(tz)
+
+    # Gerar valores aleatórios para o tráfego de site
+    sessions = np.random.randint(100, 200, size=len(dates))
+    totalUsers = np.random.randint(100, 150, size=len(dates))
+
+    # Criar um DataFrame para armazenar esses dados
+    reach_data = pd.DataFrame({
+        'Data': dates,
+        'Sessões': sessions,
+        'Usuários': totalUsers
+    })
+
+    fig = px.line(reach_data, x='Data', y=['Sessões', 'Usuários'],
+                  labels={'value': 'Tráfego de site', 'variable': 'Dimensões'},
+                  title="Tráfego de site")
+
+    # Configurar o layout para ser mais legível
+    fig.update_layout(hovermode='x unified')
     st.plotly_chart(fig, use_container_width=True)

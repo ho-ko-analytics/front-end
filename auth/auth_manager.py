@@ -46,7 +46,7 @@ class AuthManager:
     def get_user_clients(self, username):
         """Retorna os clientes com base no nome de usuário."""
         clients = {
-            'ho.ko': ["AZM", "CPN Engenharia", "IC", "Imunocamp"],
+            'ho.ko': ["ho.ko"],
             'cliente1': ["Cliente1", "Cliente2", "Cliente3"]
         }
         return clients.get(username, [])

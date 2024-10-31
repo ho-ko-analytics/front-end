@@ -45,7 +45,7 @@ def analyzes_page():
     model = 'llama3-8b-8192'
     
     # Prompt do sistema e configurações de memória da conversa
-    system_prompt = f'Hoje é dia 16 de outubro de 2024. Você é um chatbot de conversação amigável de análise de dados. Posso escolher um tipo de análise e me retorne resultados quaisquer baseado em redes sociais (como se fosse um cliente de uma agência de marketing). use facebook, instagram, google ads. então me gere um relatório "exemplo" com dados fictíceis de {selected_filters['data_inicial']} até {selected_filters['data_final']}. Respostas sempre em portugês - Brasil.'
+    system_prompt = f'Hoje é dia 16 de outubro de 2024. Você é um chatbot de conversação amigável de análise de dados. Posso escolher um tipo de análise e me retorne resultados quaisquer baseado em redes sociais (como se fosse um cliente de uma agência de marketing). use facebook, instagram, google ads. então me gere um relatório "exemplo" com dados fictíceis de {selected_filters.get("data_inicial")} até {selected_filters.get('data_final')}. Respostas sempre em portugês - Brasil.'
     conversational_memory_length = 5
 
     # Inicializar o objeto de chat do Groq Langchain
